@@ -1,12 +1,32 @@
 import React from "react";
+import Card from "./Card";
+import response from "./response.json";
 
-export default function Features(){
-    return (
-        <section className="pricing py-5">
-  <div className="container">
-    <div className="row">
+export default function Features() {
+  return (
+    <section className="pricing py-5">
+      <div className="container">
+        <div className="row">
+          {response.map((res, index) => {
+            return (
+              <Card
+                key={index}
+                a={res.type}
+                b={res.charges}
+                c={res.validity}
+                d={res.users}
+                e={res.storage}
+                f={res["public projects"]}
+                g={res["community access"]}
+                h={res["private projects"]}
+                i={res.support}
+                j={res.subdomain}
+                k={res.report}
+              />
+            );
+          })}
 
-      <div className="col-lg-4">
+          {/* <div className="col-lg-4">
         <div className="card mb-5 mb-lg-0">
           <div className="card-body">
             <h5 className="card-title text-muted text-uppercase text-center">Free</h5>
@@ -80,9 +100,9 @@ export default function Features(){
             </div>
           </div>
         </div>
+      </div> */}
+        </div>
       </div>
-    </div>
-  </div>
-</section>
-    )
+    </section>
+  );
 }
